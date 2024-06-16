@@ -35,8 +35,8 @@ func init() {
 
 func Test_Ollama_Chat(t *testing.T) {
 	content := []llms.MessageContent{
-		llms.TextParts(schema.ChatMessageTypeSystem, "You are a company branding design wizard."),
-		llms.TextParts(schema.ChatMessageTypeHuman, "What would be a good company name a company that makes colorful socks?"),
+		llms.TextParts(llms.ChatMessageTypeSystem, "You are a company branding design wizard."),
+		llms.TextParts(llms.ChatMessageTypeHuman, "What would be a good company name a company that makes colorful socks?"),
 	}
 
 	completion, err := llm.GenerateContent(ctx, content, llms.WithStreamingFunc(func(ctx context.Context, chunk []byte) error {
@@ -146,4 +146,8 @@ func Test_Ollama_Qdrant_Vectorstore(t *testing.T) {
 		log.Fatal(err)
 	}
 	fmt.Println(docs)
+}
+
+func Test_GoogleVertexAi(t *testing.T) {
+
 }
